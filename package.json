@@ -1,0 +1,43 @@
+{
+  "name": "project-tiemchung",
+  "version": "1.0.0",
+  "description": "PTTK-HTTT",
+  "main": "src/index.js",
+  "scripts": {
+    "beautiful": "prettier --single-quote --trailing-comma all --tab-width 4 --write \"src/**/*.{js,json,scss}\"",
+    "watch": "sass -w src/resources/scss/app.scss src/public/css/app.css",
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynthanh79/Project-TiemChung.git"
+  },
+  "author": "Huy Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huynthanh79/Project-TiemChung/issues"
+  },
+  "homepage": "https://github.com/huynthanh79/Project-TiemChung#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "hooks": {
+    "pre-commit": "lint-staged"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
+    "mssql": "^8.1.2"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "morgan": "^1.10.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "sass": "^1.52.2"
+  }
+}

@@ -1,0 +1,159 @@
+
+<div class="container-sm">
+    <!-- nav-bar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/img/logo_navbar.png" alt="" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0 auto;">
+                    <li class="nav-item pd-10px">
+                        <a class="nav-link fs-30px active" aria-current="page" href="#">Thông tin tiêm chủng</a>
+                    </li>
+                    <li class="nav-item pd-10px">
+                        <a class="nav-link fs-30px" href="/injection-point">Phiếu chỉ tiêm chủng</a>
+                    </li>
+
+                </ul>
+                <div class="infor-user">
+                    <div class="infor-user-left">
+                        <p style="line-height: 1.5; margin: 0; font-size: 20px; font-weight: bold;">Nguyễn Văn A</p>
+                        <p style="line-height: 1.5; margin: 0; font-size: 15px; color: #52D0F0;">Bác sĩ</p>
+                    </div>
+                    <div class="infor-user-right">
+                        <div class="infor-user-img">
+                            <img src="/img/avatar-doctor.avif" alt="">
+                        </div>
+                        <div class="sign-out-btn">
+                            <i class="bi bi-box-arrow-right"
+                                style="font-size: 22px; color: #52D0F0; display: block;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end nav-bar  -->
+
+    <!-- content  -->
+    <div class="content" style="margin: 100px 0; padding: 0">
+        <div class="container about" style="margin-bottom: 100px;">
+            <div class="row" style="justify-content: space-evenly;">
+                <div class="col-md-5" style="margin-bottom:30px">
+
+                    <div class="form-injection">
+                        <h3 style="text-align: center; margin-bottom: 70px;">Thông Tin Tiêm Chủng</h3>
+
+                        <h5>Thông tin khách hàng</h5>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Họ Tên:</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="identity-number" class="form-label">CMND</label>
+                            <input type="text" class="form-control" id="identity-number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Địa chỉ:</label>
+                            <input type="text" class="form-control" id="address">
+                        </div>
+                        <div class="row" style="justify-content: space-between;">
+                            <div class="col-5">
+                                <div class="mb-3">
+                                    <label for="injectionDate" class="form-label">Ngày tiêm:</label>
+                                    <input type="date" class="form-control" id="injectionDate">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="mb-3">
+                                    <label for="injectionNextDate" class="form-label">Ngày tiêm tiếp theo:</label>
+                                    <input type="date" class="form-control" id="injectionNextDate">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 style="margin-top:30px;">Thông Tin Người Giám Hộ (Nếu có)</h5>
+
+                        <div class="mb-3">
+                            <label for="guardianName" class="form-label">Họ Tên:</label>
+                            <input type="text" class="form-control" id="vaccineName">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="guardianIdentity" class="form-label">CMND</label>
+                            <input type="text" class="form-control" id="guardianIdentity">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="guardianAddress" class="form-label">Địa chỉ:</label>
+                            <input type="text" class="form-control" id="guardianAddress">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="guardianNote" class="form-label">Ghi chú:</label>
+                            <textarea  id="guardianNote" class="form-control" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5" style="margin-bottom:30px">
+
+                    <div class="form-injection">
+                        <h3 style="text-align: center; margin-bottom: 70px;">Thông Tin Tiêm</h3>
+
+                        <h5></h5>
+                        <div class="mb-3">
+                            <label for="vaccineName" class="form-label">Tên vaccine:</label>
+                            <input type="text" class="form-control" id="vaccineName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="amountOfPackage" class="form-label">Số gói:</label>
+                            <input type="text" class="form-control" id="amountOfPackage">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vaccineNote" class="form-label">Ghi chú:</label>
+                            <textarea  id="guardianNote" class="form-control" cols="30" rows="10"></textarea>
+                        </div>
+                        
+                    </div>
+                    <button class="btn btn-outline-success btn-signin" style="margin-top: 30px" type="submit">Lập phiếu</button>
+                </div>
+            </div>
+            <!-- content  -->
+        </div>
+    </div>
+</div>
+<!-- footer -->
+
+<div class="container-fluid footer" style="background-color: #191919; padding: 30px 0;">
+    <div class="row" style="justify-content:space-evenly; color: #fff; margin:0">
+        <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px;">
+            <img src="/img/logo_navbar.png" alt=""
+                style="border: 2px solid #fff; border-radius: 5px; margin-bottom: 10px;">
+            <p>Lorem ipsum dolor sit amet consectetur .</p>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px; ">
+            <h3 style="padding:20px 0; font-weight: bold;">Care Healthier</h3>
+            <p>call us: +151-654-6513</p>
+            <p>Email: hospital@gmail.com</p>
+        </div>
+        <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px;">
+            <h3 style="padding:20px 0; font-weight: bold;">Adress</h3>
+            <p>123 HCM city VietNam</p>
+            <p>Email: hospital@gmail.com</p>
+        </div>
+
+    </div>
+</div>
+<!-- footer -->
