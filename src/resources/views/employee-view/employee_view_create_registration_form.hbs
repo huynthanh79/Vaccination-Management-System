@@ -1,0 +1,300 @@
+
+<div class="container-fluid" style="padding: 0">
+
+    <div class="d-flex align-items-start">
+
+        <div class="nav flex-column nav-pills me-3 "
+            style="padding:50px; background-color: #F8FAFC; margin: 0 !important; position: fixed;bottom: 0;top: 0;"
+            id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="navbar-brand" style="margin-bottom: 50px" href="/">
+                <img src="/img/logo_navbar.png" alt="" width="80" height="80">
+            </a>
+            <a class="nav-link" type="button" href="/view-employee/view-registration-list"
+            style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/healthicons_health-worker-form.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold;">
+                        Xem phiếu đăng ký tiêm
+                    </div>
+                </div>
+            </a>
+
+            
+            <a class="nav-link" type="button" href="/view-employee/create-order-form"
+                style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/Group 39.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold ;">
+                        Them phieu dat mua
+                    </div>
+                </div>
+            </a>
+
+            <button class="nav-link active" id="v-pills-tab3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-tab3"
+                type="button" role="tab" aria-controls="v-pills-tab3" aria-selected="false"
+                style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/Group 39.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold ;">
+                        Them phieu đăng ký tiêm chủng
+                    </div>
+                </div>
+            </button>
+
+            <div class="infor-user" style="padding: 20px;">
+                <div class="infor-user-left">
+                    <p style="line-height: 1.5; margin: 0; font-size: 20px; font-weight: bold;">Nguyễn Văn A</p>
+                    <p style="line-height: 1.5; margin: 0; font-size: 15px; color: #52D0F0;">Nhân viên</p>
+                </div>
+                <div class="infor-user-right">
+                    <div class="infor-user-img">
+                        <img src="/img/avatar-doctor.avif" alt="">
+                    </div>
+                    <div class="sign-out-btn">
+                        <i class="bi bi-box-arrow-right"
+                            style="font-size: 22px; color: #52D0F0; display: block;"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col" style="padding-left:390px">
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <div class="tab-pane fade show active" id="v-pills-tab3" role="tabpanel" aria-labelledby="v-pills-tab3-tab"
+                    tabindex="0" style="padding: 50px;">
+                    <div class="form-injection">
+                        <h3 style="text-align: center; margin-bottom: 70px;">PHIẾU ĐĂNG KÝ TIÊM CHỦNG</h3>
+                        <form method="POST" action="/view-employee/registration-form/store" class="registration-form">
+                            <h5>Thông tin khách hàng</h5>
+
+                            <select class='form-group form-control form-control-sm mt-3 mb-3' id="checkbox-select-IDKH-options" name='customerID' required='required'>
+                                <option value=''>-- Chọn khách hàng --</option>
+                                {{#each Customers}}
+                                    <option value='{{this.MAKH}}'>{{this.MAKH}}</option>
+                                {{else}}
+                                    <option >Not found</option>
+                                {{/each}}
+                            </select>
+
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Họ Tên:</label>
+                                <input type="text" class="form-control" id="name-Customer">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="identity-number" class="form-label">CMND</label>
+                                <input type="text" class="form-control" id="identity-number-Customer">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="address" class="form-label">Địa chỉ:</label>
+                                <input type="text" class="form-control" id="address-Customer">
+                            </div>
+
+                            <h5 style="margin-top:30px;">Trung tâm tiêm chủng</h5>
+                            <select class='form-group form-control form-control-sm mt-3 mb-3' id="checkbox-select-center-options" name='centerID' required='required'>
+                                <option value=''>-- Chọn trung tâm --</option>
+                                {{#each Centers}}
+                                    <option value='{{this.MATT}}'>{{this.MATT}}</option>
+                                {{else}}
+                                    <option >Not found</option>
+                                {{/each}}
+                            </select>
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Tên trung tâm:</label>
+                                <input type="text" class="form-control" id="name-center">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Địa chỉ:</label>
+                                <input type="text" class="form-control" id="address-center">
+                            </div>
+
+                            <h5 style="margin-top:30px;">Thông tin vaccine đăng ký</h5>
+                            <h6 style="margin-top:30px; color:red">*Chọn vắc xin hoặc gói vắc xin</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vaccine-choice"
+                                    id="inlineRadio1" value="true">
+                                <label class="form-check-label" for="inlineRadio1">Vắc xin</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="vaccine-choice"
+                                    id="inlineRadio2" value="false">
+                                <label class="form-check-label" for="inlineRadio2">Gói vắc xin</label>
+                            </div>
+
+                            <div class="form-group mb-3" id="choosed-vaccine" style="display:none">
+                                <h6 style="margin-top:30px;">Vắc xin</h6>
+                                <div class="form-group mb-3">
+                                    <select class='form-group form-control form-control-sm mt-3 mb-3' id="checkbox-select-vacxin-options" name='vacxinID'>
+                                        <option value=''>-- Chọn vắc xin tiêm --</option>
+                                        {{#each Vaccines}}
+                                            <option value='{{this.MAVC}}'>{{this.MAVC}}</option>
+                                        {{else}}
+                                            <option >Not found</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="name" class="form-label">Tên vắc xin:</label>
+                                    <input type="text" class="form-control" id="name-vc">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="name" class="form-label">Mô tả:</label>
+                                    <input type="text" class="form-control" id="discription-vc">
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3" id="choosed-vaccine-group" style="display:none">
+                                <h6 style="margin-top:30px;">Gói vắc xin</h6>
+                                <div class="form-group mb-3">
+                                    <select class='form-group form-control form-control-sm mt-3 mb-3' id="checkbox-select-vacxin-group-options" name='vacxinGroupID'>
+                                        <option value=''>-- Chọn gói vắc xin tiêm --</option>
+                                        {{#each VaccineGroups}}
+                                            <option value='{{this.MAGOI}}'>{{this.MAGOI}}</option>
+                                        {{else}}
+                                            <option >Not found</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="name" class="form-label">Tên gói vắc xin:</label>
+                                    <input type="text" class="form-control" id="name-package-vc">
+                                </div>
+                            </div>
+
+                            <h6 style="margin-top:30px;">Hình thức tiêm</h6>
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" name="injection_method">
+                            </div>
+
+                            <h5 style="margin-top:30px;">*Khách hàng đăng ký cho bản thân?</h5>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions1"
+                                    id="inlineRadio1" value=1>
+                                <label class="form-check-label" for="inlineRadio1">Đúng</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions1"
+                                    id="inlineRadio2" value=0>
+                                <label class="form-check-label" for="inlineRadio2">Sai</label>
+                            </div>
+
+                            <div class="mt-4">
+                                <ul>
+                                    <li>Tiêm chủng là biện pháp hiệu quả phòng ngừa các bệnh lây nhiễm qua virus, Tiêm
+                                        chủng là bảo vệ bản thân và cộng đồng.</li>
+                                    <li>Khi có các triệu chứng bất thường về sức khỏe sau tiêm cần liên hệ ngay với cơ
+                                        quan y tế gần nhất để thăm khám kịp thời.</li>
+                                </ul>
+                            </div>
+
+                            <button class="btn btn-outline-success btn-signin" style="margin-top: 30px"
+                                type="submit">Lập phiếu</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var CustomerIDs = document.getElementById('checkbox-select-IDKH-options');
+        var CenterIDs = document.getElementById('checkbox-select-center-options');
+        var VaccineIDs = document.getElementById('checkbox-select-vacxin-options');
+        var VaccineGroupIDs = document.getElementById('checkbox-select-vacxin-group-options');
+        var VaccineChoice = $('input[type=radio][name="vaccine-choice"]');
+        var choosedVaccine = document.getElementById('choosed-vaccine');
+        var choosedVaccineGroup = document.getElementById('choosed-vaccine-group');
+        var nameVC = document.getElementById('name-vc');
+        var discriptionVC = document.getElementById('discription-vc');
+        var nameVaccineGroup = document.getElementById('name-package-vc');
+        
+
+        CustomerIDs?.addEventListener('change', function() {
+            var nameCustomer = document.getElementById('name-Customer');
+            var identityCustomer = document.getElementById('identity-number-Customer');
+            var addressCustomer = document.getElementById('address-Customer');
+            
+            {{#each Customers}}
+                if(CustomerIDs.value == {{this.MAKH}}) {
+                    nameCustomer.value = '{{this.HOTENKH}}';
+                    identityCustomer.value = '{{this.CMND}}';
+                    addressCustomer.value = '{{this.DIACHI}}';
+                }
+            {{/each}}
+            if(CustomerIDs.value == '') {
+                nameCustomer.value = '';
+                identityCustomer.value = '';
+                addressCustomer.value = '';
+            }
+        });
+
+        CenterIDs?.addEventListener('change', function() {
+            var nameCenter = document.getElementById('name-center');
+            var addressCenter = document.getElementById('address-center');
+            
+            {{#each Centers}}
+                if(CenterIDs.value == {{this.MATT}}) {
+                    nameCenter.value = '{{this.TENTT}}';
+                    addressCenter.value = '{{this.DIACHI}}';
+                }
+            {{/each}}
+            if(CenterIDs.value == '') {
+                nameCenter.value = '';
+                addressCenter.value = '';
+            }
+        });
+
+        VaccineIDs?.addEventListener('change', function() {            
+            {{#each Vaccines}}
+                if(VaccineIDs.value == {{this.MAVC}}) {
+                    nameVC.value = '{{this.TENVC}}';
+                    discriptionVC.value = '{{this.MOTA}}';
+                }
+            {{/each}}
+            if(VaccineIDs.value == '') {
+                nameVC.value = '';
+                discriptionVC.value = '';
+            }
+        });
+
+        VaccineGroupIDs?.addEventListener('change', function() { 
+            {{#each VaccineGroups}}
+                if(VaccineGroupIDs.value == {{this.MAGOI}}) {
+                    nameVaccineGroup.value = '{{this.TENGOI}}';
+                }
+            {{/each}}
+            if(VaccineGroupIDs.value == '') {
+                nameVaccineGroup.value = '';
+            }
+        });
+
+        VaccineChoice?.on('change', function() {
+            console.log(this.value);
+            if(this.value == 'true'){
+                choosedVaccineGroup.style.display = "none";
+                choosedVaccine.style.display = "block";
+                VaccineGroupIDs.value = '';
+                nameVC.value = '';
+                discriptionVC.value = '';
+            };
+            if(this.value == 'false') {
+                choosedVaccine.style.display = "none";
+                choosedVaccineGroup.style.display = "block";
+                VaccineIDs.value = '';
+                nameVaccineGroup.value = '';
+            };
+            
+        });
+
+    });
+</script>

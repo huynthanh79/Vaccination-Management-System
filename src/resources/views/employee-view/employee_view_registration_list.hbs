@@ -1,0 +1,121 @@
+
+<div class="container-fluid" style="padding: 0">
+
+    <div class="d-flex align-items-start">
+
+        <div class="nav flex-column nav-pills me-3 "
+            style="padding:50px; background-color: #F8FAFC; margin: 0 !important; position: fixed;bottom: 0;top: 0;"
+            id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="navbar-brand" style="margin-bottom: 50px" href="/">
+                <img src="/img/logo_navbar.png" alt="" width="80" height="80">
+            </a>
+            <button class="nav-link active" id="v-pills-tab1-tab" data-bs-toggle="pill"
+                data-bs-target="#v-pills-tab1" type="button" role="tab" aria-controls="v-pills-tab1"
+                aria-selected="true" style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/healthicons_health-worker-form.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold;">
+                        Xem phiếu đăng ký tiêm
+                    </div>
+                </div>
+            </button>
+
+            
+            <a class="nav-link" type="button" href="/view-employee/create-order-form"
+                style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/Group 39.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold ;">
+                        Them phieu dat mua
+                    </div>
+                </div>
+            </a>
+
+            <a class="nav-link" type="button" href="/view-employee/create-registration-form"
+                style="width: 290px; margin-bottom: 30px">
+                <div class="row" style="align-items: center;">
+                    <div class="col-3">
+                        <img src="/img/Group 39.png" alt="">
+                    </div>
+                    <div class="col-9" style="font-weight:bold ;">
+                        Them phieu đăng ký tiêm chủng
+                    </div>
+                </div>
+            </a>
+
+            <div class="infor-user" style="padding: 20px;">
+                <div class="infor-user-left">
+                    <p style="line-height: 1.5; margin: 0; font-size: 20px; font-weight: bold;">Nguyễn Văn A</p>
+                    <p style="line-height: 1.5; margin: 0; font-size: 15px; color: #52D0F0;">Nhân viên</p>
+                </div>
+                <div class="infor-user-right">
+                    <div class="infor-user-img">
+                        <img src="/img/avatar-doctor.avif" alt="">
+                    </div>
+                    <div class="sign-out-btn">
+                        <i class="bi bi-box-arrow-right"
+                            style="font-size: 22px; color: #52D0F0; display: block;"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col" style="padding-left:390px">
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="">Nhân viên</a>
+                        <div>
+                            <button class="btn btn-outline-success" type="submit"><i class="bi bi-bell-fill"></i></button>
+                            <a href="/" class="btn btn-outline-success" type="submit"><i class="bi bi-box-arrow-right" style="margin-right: 10px;"></i>log out</a>
+                        </div>
+                            
+                        
+                    </div>
+                </nav>
+
+                <div class="tab-pane fade show active" id="v-pills-tab1" role="tabpanel"
+                    aria-labelledby="v-pills-tab1-tab" tabindex="0" style="padding: 50px;">
+                    <div class="injections-list">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-2">ID</div>
+                            <div class="col-2">Họ tên</div>
+                            <div class="col-2">CMND</div>
+                            <div class="col-2">Địa chỉ</div>
+                            <div class="col-2">Hình thức tiêm</div>
+                            <div class="col-2">Ngày lập</div>
+                        </div>
+
+                        {{#each InjectionInformation}}
+
+                            <div class="row"
+                                style="text-align: center;margin-top: 20px;padding: 10px;align-items: center; border-radius:5px; background-color: #F8FAFC">
+                                <div class="col-2">{{this.MAPDKT}}</div>
+                                <div class="col-2">{{this.HOTENKH}}</div>
+                                <div class="col-2">{{this.CMND}}</div>
+                                <div class="col-2">{{this.DIACHI}}</div>
+                                <div class="col-2">{{this.HINHTHUCTIEM}}</div>
+                                <div class="col-2">{{convert this.NGAYLAP}}</div>
+                            </div>
+
+                        {{else}}
+                            <div class="row"
+                                style="text-align: center;margin-top: 20px;padding: 10px;align-items: center; border-radius:5px; background-color: #F8FAFC">
+                                <div class="col-2">Không tồn tại phiếu tiêm nào!!</div>
+                            </div>
+
+                        {{/each}}
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

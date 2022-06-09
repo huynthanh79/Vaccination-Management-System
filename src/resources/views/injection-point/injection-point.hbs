@@ -1,0 +1,259 @@
+
+<div class="container-sm">
+  <!-- nav-bar -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo_navbar.png" alt="" width="50" height="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0 auto;">
+          <li class="nav-item pd-10px">
+            <a class="nav-link fs-30px" aria-current="page" href="/injection-information">Thông tin tiêm chủng</a>
+          </li>
+          <li class="nav-item pd-10px">
+            <a class="nav-link fs-30px active" href="#">Phiếu chỉ tiêm chủng</a>
+          </li>
+        </ul>
+        <div class="infor-user">
+          <div class="infor-user-left">
+            <p style="line-height: 1.5; margin: 0; font-size: 20px; font-weight: bold;">Nguyễn Văn A</p>
+            <p style="line-height: 1.5; margin: 0; font-size: 15px; color: #52D0F0;">Bác sĩ</p>
+          </div>
+          <div class="infor-user-right">
+            <div class="infor-user-img">
+              <img src="/img/avatar-doctor.avif" alt="">
+            </div>
+            <div class="sign-out-btn">
+              <i class="bi bi-box-arrow-right" style="font-size: 22px; color: #52D0F0; display: block;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- end nav-bar  -->
+
+  <!-- content  -->
+  <div class="content" style="margin: 100px 0; padding: 0">
+    <div class="container about" style="margin-bottom: 100px;">
+      <form method="POST" action="/injection-point/store" class="injection-point">
+        <div class="row" style="justify-content: space-evenly;">
+          <div class="col" style="margin-bottom:30px">
+            <div class="form-injection">
+              
+              <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+                <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" style="background-color:aquamarine">
+                    <div class="toast-header">
+                      <img src="/img/logo_navbar.png" class="rounded me-2" alt="..." width="20" height="20">
+                      <strong class="me-auto">Thông báo</strong>
+                      
+                      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                      Đã thêm thành công.
+                    </div>
+                </div>
+              </div>
+              
+              <h3 style="text-align: center; margin-bottom: 70px;">Phiếu Chỉ Định Tiêm</h3>
+
+              <h5>Thông tin khách hàng</h5>
+              <select class='form-group form-control form-control-sm mt-3 mb-3' id="checkbox-select-IDKH-options" name='customerID' required='required'>
+                  <option value=''>-- Chọn khách hàng --</option>
+                  {{#each Customers}}
+                      <option value='{{this.MAKH}}'>{{this.MAKH}}</option>
+                  {{else}}
+                      <option >Not found</option>
+                  {{/each}}
+              </select>
+              <div class="mb-3">
+                <label for="name" class="form-label">Họ Tên:</label>
+                <input type="text" class="form-control" id="name-cus">
+              </div>
+              <div class="mb-3">
+                <label for="identity-number" class="form-label">CMND</label>
+                <input type="text" class="form-control" id="identity-number-cus">
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Địa chỉ:</label>
+                <input type="text" class="form-control" id="address-cus">
+              </div>
+
+              <h5 style="margin-top:30px;">Thông Tin Tiêm</h5>
+              <div class="col-3">
+                <label for="vaccineName" class="form-label">*Chọn vắc xin</label>
+                <select class='form-group form-control form-control-sm ' id="checkbox-select-vacxin-options" name='vacxinID' required='required'>
+                    <option value=''>-- Chọn vắc xin tiêm --</option>
+                    {{#each Vaccines}}
+                        <option value='{{this.MAVC}}'>{{this.MAVC}}</option>
+                    {{else}}
+                        <option >Not found</option>
+                    {{/each}}
+                </select>
+              </div>
+              <div class="row mt-3">
+                <div class="col-5 mb-3">
+                  <label for="vaccineName" class="form-label">Tên vaccine</label>
+                  <input type="text" class="form-control" id="name-vc">
+                </div>
+                <div class="col mb-3">
+                  <label for="amountOfPackage" class="form-label">Mô tả</label>
+                  <input type="text" class="form-control" id="discription-vc">
+                </div>
+              </div>
+
+              <h5 style="margin-top:30px;">Thông tin khác</h5>
+              <div class="row">
+                <div class="col-3 mb-3">
+                  <label for="injectionDate" class="form-label">Đã được tiêm từ ngày:</label>
+                  <input type="date" class="form-control" id="injectionDate" name="injection_date" required>
+                </div>
+                <div class="col-3 mb-3">
+                  <label for="serial" class="form-label">Số thứ tự:</label>
+                  <input type="number" class="form-control" id="serial" name="serial" required>
+                </div>
+                <div class="col"></div>
+              </div>
+              
+              
+              <h5 style="margin-top:70px;">Kết luận</h5>
+              <div class="form-check form-check-inline col-12">
+                  <input class="form-check-input" type="radio" name="conclusion"
+                      id="inlineRadio1" value="Đã đủ điều kiện tiêm chủng ngay" required>
+                  <label class="form-check-label" for="inlineRadio1">
+                    Đã đủ điều kiện tiêm chủng ngay
+                  </label>
+              </div>
+              <div class="form-check form-check-inline col-12">
+                  <input class="form-check-input" type="radio" name="conclusion"
+                      id="inlineRadio1" value="Trì hoản tiêm, có đặc điểm bất thường" required>
+                  <label class="form-check-label" for="inlineRadio1">
+                    Trì hoản tiêm, có đặc điểm bất thường
+                  </label>
+              </div>
+              
+              <div class="form-check form-check-inline col-12">
+                  <input class="form-check-input" type="radio" name="conclusion"
+                      id="inlineRadio1" value="Không được phép tiêm vì có thể sinh phản ứng phụ mạnh" required>
+                  <label class="form-check-label" for="inlineRadio1">
+                    Không được phép tiêm vì có thể sinh phản ứng phụ mạnh
+                  </label>
+              </div>
+
+              <div class="form-check form-check-inline col-12">
+                  <input class="form-check-input" type="radio" name="conclusion"
+                      id="inlineRadio1" value="Được phép tiêm nhưng bắt buộc phải theo dõi 1 tiếng sau tiêm" required>
+                  <label class="form-check-label" for="inlineRadio1">
+                    Được phép tiêm nhưng bắt buộc phải theo dõi 1 tiếng sau tiêm
+                  </label>
+              </div>
+
+              <div class="mb-3" style="margin-top: 30px">
+                <label for="descripttion" class="form-label" style="font-size: 22px; font-weight: 500">Mô tả</label>
+                <textarea class="form-control" name="descripttion" cols="30" rows="8"></textarea>
+              </div>
+
+              <div class="row" style="margin-top: 80px">
+                <div class="col">
+                  <div class="mb-3" >
+                    <p>Thời gian:...,Ngày...,Tháng...,Năm... </p>
+                    <h5>Người thực hiện cấp</h5>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <button class="btn btn-outline-success btn-signin" style="margin-top: 30px" type="submit">Lập phiếu</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- content  -->
+    </div>
+  </div>
+</div>
+    <!-- footer -->
+
+<div class="container-fluid footer" style="background-color: #191919; padding: 30px 0;">
+  <div class="row" style="justify-content:space-evenly; color: #fff; margin:0">
+    <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px;">
+      <img src="/img/logo_navbar.png" alt=""
+        style="border: 2px solid #fff; border-radius: 5px; margin-bottom: 10px;">
+      <p>Lorem ipsum dolor sit amet consectetur .</p>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px; ">
+      <h3 style="padding:20px 0; font-weight: bold;">Care Healthier</h3>
+      <p>call us: +151-654-6513</p>
+      <p>Email: hospital@gmail.com</p>
+    </div>
+    <div class="col-md-3" style=" padding: 30px 30px; margin-bottom: 20px;">
+      <h3 style="padding:20px 0; font-weight: bold;">Adress</h3>
+      <p>123 HCM city VietNam</p>
+      <p>Email: hospital@gmail.com</p>
+    </div>
+
+  </div>
+</div>
+<!-- footer -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var CustomerIDs = document.getElementById('checkbox-select-IDKH-options');
+        var VaccineIDs = document.getElementById('checkbox-select-vacxin-options');
+
+        CustomerIDs?.addEventListener('change', function() {
+            var nameCus = document.getElementById('name-cus');
+            var identityCus = document.getElementById('identity-number-cus');
+            var addressCus = document.getElementById('address-cus');
+            
+            {{#each Customers}}
+                if({{this.MAKH}} == CustomerIDs.value) {
+                    nameCus.value = '{{this.HOTENKH}}';
+                    identityCus.value = '{{this.CMND}}';
+                    addressCus.value = '{{this.DIACHI}}';
+                }
+            {{/each}}
+            if(CustomerIDs.value == '') {
+                nameCus.value = '';
+                identityCus.value = '';
+                addressCus.value = '';
+            }
+        })
+
+
+        VaccineIDs?.addEventListener('change', function() {   
+            var nameVC = document.getElementById('name-vc');       
+            var discriptionVC = document.getElementById('discription-vc');
+            {{#each Vaccines}}
+                if(VaccineIDs.value == {{this.MAVC}}) {
+                    nameVC.value = '{{this.TENVC}}';
+                    discriptionVC.value = '{{this.MOTA}}';
+                }
+            {{/each}}
+            if(VaccineIDs.value == '') {
+                nameVC.value = '';
+                discriptionVC.value = '';
+            }
+        });
+        {{#with check}}
+          //if({{this}} === "true"){
+          //  var showMess = document.getElementById('liveToast');
+          //  showMess.removeClass('hide');
+          //  showMess.addClass('show')
+          //}
+          console.log({{this}});
+        {{/with}}
+    });
+</script>

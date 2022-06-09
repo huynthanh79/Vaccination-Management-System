@@ -47,7 +47,17 @@ app.engine(
                   mnth = ("0" + (date.getMonth() + 1)).slice(-2),
                   day = ("0" + date.getDate()).slice(-2);
                 return [day, mnth, date.getFullYear()].join("-");
-              }
+              },
+            
+            eq: (v1, v2) => v1 === v2,
+            ne: (v1, v2) => v1 !== v2,
+            lt: (v1, v2) => v1 < v2,
+            gt: (v1, v2) => v1 > v2,
+            lte: (v1, v2) => v1 <= v2,
+            gte: (v1, v2) => v1 >= v2,    
+            sort() {
+                return arguments[0].sort();
+            }  
         },
     }),
 );

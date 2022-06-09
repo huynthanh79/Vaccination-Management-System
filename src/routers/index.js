@@ -1,14 +1,16 @@
 //const newRouter = require('./news');
-//const meRouter = require('./me');
+const injectionPointRouter = require('./injection-point-router');
 const siteRouter = require('./site-router');
-//const coursesRouter = require('./courses');
+const employeeRouter = require('./employee-router');
+const injectionInforRouter = require('./injection-information-router');
 
 function route(app) {
-    // app.use('/me', meRouter);
 
-    // app.use('/news', newRouter);
+    app.use('/injection-point', injectionPointRouter);
 
-    // app.use('/courses', coursesRouter);
+    app.use('/view-employee', employeeRouter);
+
+    app.use('/injection-information', injectionInforRouter)
 
     app.use('/', siteRouter);
 }
