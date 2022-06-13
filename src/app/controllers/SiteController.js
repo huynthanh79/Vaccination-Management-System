@@ -6,11 +6,6 @@ class SiteController {
     home(req, res, next) {
         res.render('home');
     }
-
-    //[Get] /injection-point
-    showInjectionPoint(req, res, next) {
-        res.render('injection-point');
-    };
 }
 
 module.exports = new SiteController();
